@@ -1,0 +1,92 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+body {
+	font-family: 'Raleway', sans-serif;
+	/*font-family: 'Playfair Display', serif;*/
+	background-color: #C0DBF0;
+	color: #C0DBF0;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 2em;
+	color: #5A6770;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+}
+
+input[type="text"] {
+	font-size: 18px;
+    width: 90%;
+    border: none;
+}
+
+.printcontainer {
+	display: none;
+}
+
+.screencontainer {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	text-align: center;
+}
+
+
+.screencontainer h1 {
+	background-color: #5A6770;
+	color: white;
+	padding: 10px;
+}
+
+.instruction {
+	font-size: .75em;
+}
+
+.instruction::before {
+	content: "Instructions: ";
+}
+
+.ready {
+	background-color: #66FF66;
+	color: white;
+}
+
+
+.notready {
+	background-color: #FF6666;
+	color: white;
+}
+
+.waiting {
+	background-color: #ACC4D6;
+	color: white;
+}
+
+.screenoutput {
+	margin-left: auto;
+	margin-top: 20px;
+	font-size: 2em;
+}
+.screenoutput::before {
+	content: "Status: ";
+}
+
+.formcontainer {
+	background-color: #5A6770;
+	padding: 20px;
+	padding-bottom: 5px;
+
+}
+.formelement {
+	width: 50%;
+	font-size: 1.25em;
+	margin-bottom: 20px;
+	font-weight: 900;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFFFFF;
+}
+
+.warning {
+	border: 1px dashed red;
+}

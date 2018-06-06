@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+
+body {
+	font-family: 'Raleway', sans-serif;
+	line-height: 1.3;
+	background-color: white;
+}
+
+h1 {
+	font-size: 2.5em;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+}
+
+h2 {
+	font-size: 1.5em;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+
+}
+
+h3 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+}
+
+.screencontainer {
+	display: none;
+}
+
+.printcontainer{
+
+	text-align: center;
+	page-break-after: always;
+}
+
+.outputbar {
+	max-width: 100%;
+}
+
+.folder_display {
+	font-size: .75em;
+	font-weight: 400;
+}
+
+.bar_code_display {
+	font-size: .75em;
+	font-weight: 400;
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" media="print" href="./css/print.css">
+	<link rel="stylesheet" media="screen" href="./css/screen.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<title>Project Folder Labeler</title>
+</head>
+<body>
+	<div class="screencontainer">
+		<H1>Scanning Cover Sheet Generator</H1>
+		<div class="instruction">Simply fill out all fields, and print. Refresh to start over.</div>
+		<div class="formcontainer">
+			<div class="formelement warning">
+				<input type="text" id="prefix" placeholder="Prefix">
+			</div>
+			<div class="formelement warning">
+				<input type="text" id="bar_code" placeholder="Barcode">
+			</div>
+			<div class="formelement warning">
+				<input type="text" id="folderstart" placeholder="Folder Range Start">
+			</div>
+			<div class="formelement warning">
+				<input type="text" id="folderend" placeholder="Folder Range End">
+			</div>
+		</div>
+		<div class="screenoutput waiting">
+
+			Please complete the form.
+
+		</div>
+	</div>
+	<div class="printcontainer">
+	</div>
+</body>
+<script>
+$( "input" ).keyup(function() {
+
+	var pxv = $("#prefix").val();
+	var fsv = $("#folderstart").val();
+	var fev = $("#folderend").val();
+	var bcv = $("#bar_code").val();
+	var generated=false;
+	if (fsv.length >= 1 && fev.length >= 1 && bcv.length >= 1 && bcv.length >= 1) {
+
+
+		var bcval = pxv + "-" + $( "#bar_code" ).val();
+		var fstart = parseInt($( "#folderstart" ).val());
+		var fend = parseInt($( "#folderend" ).val());
+		var output = '';
+		var incrementor = fstart;
+		$(".screenoutput").removeClass( "waiting" );
+		$(".screenoutput").addClass("notready");
+		$(".screenoutput").html("Please Wait");
+		do {
+			console.log(incrementor);
+			output = output + "<div class='printcontainer'><h3>Imaging Services Document Scanning Cover Sheet</h3>";
+
+			output = output + "<h1>" + bcval.toUpperCase() + "-" + incrementor + " </h1>";
+			output = output + " <img class='outputbar' src='http://www.barcodesinc.com/generator/image.php?style=453&type=C39&width=950&height=100&xres=3&font=5&code=" + bcval.toUpperCase() + "-" + incrementor +"'><br>";
+			output = output + "<footer>";
+			output = output + "   <h2><big>Folder:</big> <span class='folder_display'>" + incrementor + "</span></h2>";
+			output = output + "    <h2><big>HD Bar Code:</big> <span class='bar_code_display'>" + $( "#bar_code" ).val() + "</span></h2>";
+			output = output + " </footer>";
+			output = output + " </div>";
+			incrementor += 1;
+			var generated=true;
+		} while (incrementor <= fend);
+		$(".printcontainer").html(output);
+
+		if (generated === true) {
+			$(".screenoutput").removeClass( "notready" );
+			$(".screenoutput").addClass("ready");
+			$(".screenoutput").html("Ready to Print");
+		} else {
+			$(".screenoutput").removeClass( "ready" );
+			$(".screenoutput").addClass("notready");
+			$(".screenoutput").html("There might have been a problem. Please ensure that all fields are filled out properly, and folders are numeric.");
+		}
+	} else {
+		$(".screenoutput").removeClass( "ready" );
+		$(".screenoutput").addClass("waiting");
+		$(".screenoutput").html("Please complete the form.");
+	}
+
+}).keyup();
+
+$( "input" ).blur(function() {
+	var value = $(this).val();
+	if (value.length >= 1) {
+		$( this ).parent().removeClass( "warning" );
+	}
+	else {
+		if (!$(this).parent().hasClass("warning")) {
+			$(this).parent().addClass("warning");
+		}
+	}
+});
+
+window.onload = function() {
+	document.getElementById('prefix').focus();
+}
+</script>
+</html>
