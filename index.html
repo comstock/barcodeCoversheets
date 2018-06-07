@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="screencontainer">
-		<H1>Scanning Cover Sheet Generator</H1>
+		<H1>Sheet-fed Scanning Cover Sheet Generator</H1>
 		<div class="instruction">Simply fill out all fields, and print. Refresh to start over.</div>
 		<div class="formcontainer">
 			<div class="formelement warning">
@@ -62,7 +62,7 @@ $( "input" ).keyup(function() {
 			output = output + " <img class='outputbar' src='http://www.barcodesinc.com/generator/image.php?style=453&type=C39&width=950&height=100&xres=3&font=5&code=" + bcval.toUpperCase() + "-" + incrementor +"'><br>";
 			output = output + "<footer>";
 			output = output + "   <h2><big>Folder:</big> <span class='folder_display'>" + incrementor + "</span></h2>";
-			output = output + "    <h2><big>HD Bar Code:</big> <span class='bar_code_display'>" + $( "#bar_code" ).val() + "</span></h2>";
+			output = output + "    <h2><big>Bar Code:</big> <span class='bar_code_display'>" + $( "#bar_code" ).val() + "</span></h2>";
 			output = output + " </footer>";
 			output = output + " </div>";
 			incrementor += 1;
